@@ -114,7 +114,7 @@ public class ProgressCheck
                         return;
                     }
                 }
-                else
+                else //i dont think this works
                 {
                     root = temp.right;
                     temp = null;
