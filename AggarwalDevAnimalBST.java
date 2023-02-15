@@ -14,7 +14,7 @@ public class AggarwalDevAnimalBST {
         }
     }
     public AggarwalDevAnimalBST() {
-
+//nothing in your construdcotr, why isnt there anything uiny yourn cobsturcotor youj nedd ote stablish root iun your cibstryctir
     }
     public void insert(String name) {
         if(head==null) {
