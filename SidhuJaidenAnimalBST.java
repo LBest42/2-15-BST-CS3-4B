@@ -5,11 +5,11 @@
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class SidhuJaidenAnimalBST
+public class SidhuJaidenAnimalBST //your class name gives me a stroke reading it!
 {
     private Node root;
     public class Node {
-        Node left;
+        Node left; //you can combine this into one line, dont have to establish these on separate line
         Node right;
         String name;
         public Node(String str) {
@@ -55,7 +55,7 @@ public class SidhuJaidenAnimalBST
     public void deleteRecursion(Node n, String str) {
         if (n.name.equals(str)) {
             if (n.right != null && n.left != null) {
-                Node successor = getMinRecursion(n.right);
+                Node successor = getMinRecursion(n.right); //the name successor is kinda've convulated, could have been shorter use prev next time
                 if (successor.right == null && successor.left == null) {
                     n.name = successor.name;
                     successor = null;
