@@ -1,3 +1,6 @@
 This is the original file!
-I am adding these lines to a newly created file in Git
+I changed this line, notice how it looks when examining history!
 You can also upload a file to skip writing directly in the Git editor.
+
+These are lines that I added in after the first commit!
+This and line 6 are both brand new.
