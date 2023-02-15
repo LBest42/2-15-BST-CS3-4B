@@ -20,9 +20,9 @@ public class IyerSanahAnimalBST
         }
     }
     
-    public IyerSanahAnimalBST()
+    public IyerSanahAnimalBST() //class name too long!
     {
-        root = null;
+        root = null; //should set root to empty string literal!
     }
     
     public void insert(String n)
@@ -37,7 +37,7 @@ public class IyerSanahAnimalBST
         }
     }
     
-    private void insert(String word, Node node)
+    private void insert(String word, Node node) //having the paramter name of Node be "node" is a tad bit confusing
     {
         if (word.compareTo(node.val) == 0)
         {
