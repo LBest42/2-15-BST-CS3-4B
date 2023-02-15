@@ -98,7 +98,7 @@ public class PHamGavinAnimalBST
     
     public String toString(String build)
     {
-        return "hi";
+        return "hi"; //your attempt at a toString does not produce any valid animal names
     }
     
     public static void main(String[] args)
