@@ -213,7 +213,7 @@ public class MySteve
         }
     }
 
-    public static void main(String[] args)
+    public static void main(String[] args)//this is good testing! by:gavin pham
     {
         MySteve a = new MySteve();
         a.insert("elephant");
