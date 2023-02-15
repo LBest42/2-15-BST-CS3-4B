@@ -1,129 +1,88 @@
-public class AnimalBST{
-    private Node root;
-    public class Node{
-        String name;
-        Node left, right;
-        public Node(String val){
-            name = val;
-            left = right = null;
-        }
-        @Override
-        public String toString(){
-            return this.name;
-        }
-    }
-    public AnimalBST(){
-        root = new Node("");
-    }
-    
-    public void insert(String s){
-        if (!contains(s))
-            root = insert(root, s);
-    }
-    public Node insert(Node node, String s){
-        if (node == null){
-            node = new Node(s);
-            return node;
-        }
-        else if (node.name.compareTo(node.left.name) < 0){
-            node.left = insert(node.left, s);
-        }
-        else if (node.name.compareTo(node.right.name) > 0){
-            node.right = insert(node.right, s);
-        }
-        return node;
-    }
-    
-    public Node getMin(){
-        return getMin(root);
-    }
-    public Node getMin(Node node){
-        if (node.left == null)
-            return node;
-        getMin(node.left);
-        return null; //no shot this works
-    }
-    public Node getMax(){
-        return getMax(root);
-    }
-    public Node getMax(Node node){
-        if (node.right == null)
-            return node;
-        getMax(node.right);
-        return null; //no shot this works
-    }
-    
-    public boolean contains(String s){
-        return contains(root, s);
-    }
 
-    public boolean contains(Node node, String s){
-        if (node == null) 
-            return false;
-        if (root.name.equals(s)) 
-            return true;
-        else if (node.name.compareTo(s) > 0){ 
-            return contains(node.left, s);
+public class AnimalBST {
+	private Animal root;
+	public class Animal{
+		private String Name;
+		
+		AnimalBST left, right;
+	}
+	public class Animal(Animal name) {
+		this.Name = name;
+		left = null;
+		right = null;
+		
+	}
+	
+	public static void insert(Animal name)
+	{
+		if (root == null) {
+			name = root;
+		}
+		if (name.compareTo(root) == 0)
+		{
+			break;
+		}
+		if(name.compareTo(root) < 0)
+		{
+			while(root.left() != null)
+			{
+				insert(root.left());
+			}
+		}
+		if(name.comareTo(root) > 0)
+		{
+			while(root.right() != null)
+			{
+				insert(root.right());
+			}
+		}
+		
+		
+	}
+	
+	public static void delete(Animal name)
+	{
+		if(root.compareTo(null) == 0) {
+			name = root;
+		}
+		if (name.compareTo(root) > 0) {
+			root.right() = delete(root.right);
+		}
+		if (name.compareTo(root) < 0) {
+			root.left() = delete(root.left);
+		}
+		else {
+			if (root.right == null && root.left == null) {
+				root = null;
+			}
+		if(root.right.compareTo(name)) {
+			{
+				root = root.right;
+			}
+		
         }
-        else{ 
-            return contains(node.right, s);
-        }
+        return root;
     }
-    public void delete(String s){
-        if (contains(s)){
-            delete(root, root, s);
-        }
-    }
-    public void delete(Node node, Node prev, String s){
-        if (node == null)
-            return;
-        if (node.name.equals(s)){
-            if (node.left == null && node.right == null){ //leaf
-                if (prev.left == node)
-                    prev.left = null;
-                else
-                    prev.right = null;
-            }
-            if (node.left == null && node.right != null){ //right sub
-                if (prev.left == node){
-                    prev.left = node.right;
-                }
-                else{
-                    prev.right = node.right;
-                }
-            }
-            if (node.left != null && node.right == null){ //left sub
-                if (prev.left == node){
-                    prev.left = node.left;
-                }
-                else{
-                    prev.right = node.left;
-                }
-            }
-            else{ //two subs
-                String temp = getMin(node.right).name; //sum like this i forgot
-                delete(node.right.name);
-                node.name = temp;
-            }
-        }
-        else{
-            if (node.name.compareTo(node.left.name) < 0){
-                delete(node.left, node, s);
-            }
-            else{
-                delete(node.right, node, s);
-            }
-        }
-    }
-    public void print(){ //i couldn't call it to string because of error
-        print(root);
-    }
-    public void print(Node node){
-        if (node != null){
-            print(node.left);
-            System.out.print (node.name + " ");
-            print(node.right);
-        }
-        
-    }
-}//good job! by:gavin
+    
+		
+	}
+	//lnr
+	public String toString(Animal root2)
+	{
+		
+		Animal root = root2;
+		if (root.left == null)
+		{
+			while(root.left = null)
+			{
+				root.left(toString);
+			}
+		}
+		
+	}
+}
+
+
+
+	
+
