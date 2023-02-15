@@ -1,6 +1,6 @@
-public class ParasuramuniEeshwarAnimal {
+public class ParasuramuniEeshwarAnimal { //class name too long! should be shorter
 
-    animalNode root;
+    animalNode root; //this is supposed to be private >:( >:( >:( >:(
 
     public ParasuramuniEeshwarAnimal(String name, animalNode right, animalNode left){
         root = new animalNode(name);
@@ -10,7 +10,7 @@ public class ParasuramuniEeshwarAnimal {
 
     public class animalNode{
         String name;
-        animalNode right;
+        animalNode right; //you can combine these two into one line brO!
         animalNode left;
         public animalNode(String name){
             this.name = name;
@@ -42,7 +42,7 @@ public class ParasuramuniEeshwarAnimal {
     }
 
 
-    public void delete(animalNode node, animalNode previousNode, boolean right , String n){
+    public void delete(animalNode node, animalNode previousNode, boolean right , String n){ //you have a bit too many paramteres, you can cut down!!!Q
         animalNode successor = null;
         if(n == node.name){
 
@@ -93,7 +93,7 @@ public class ParasuramuniEeshwarAnimal {
         }
     }
 
-    public animalNode getSuccessor(animalNode node){
+    public animalNode getSuccessor(animalNode node){ //successor is too long of a name, make it prev
         if(node.right == null && node.left == null){
             return node;
         }
@@ -104,7 +104,7 @@ public class ParasuramuniEeshwarAnimal {
         return null;
     }
 
-    public void toString(animalNode currNode){
+    public void toString(animalNode currNode){ //currNode is too confusing, just make it current
         if(currNode.left != null){
            toString(currNode.left);
         }
@@ -114,6 +114,6 @@ public class ParasuramuniEeshwarAnimal {
         }
     }
 
-
+//>:(
 }
 
