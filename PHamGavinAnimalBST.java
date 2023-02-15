@@ -93,6 +93,7 @@ public class PHamGavinAnimalBST
                     }
                 }
             }
+            //delete method does not seem to account for if the node being deleted has two children
         }
     }
     
