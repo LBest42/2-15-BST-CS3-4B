@@ -10,7 +10,7 @@ public class CuneyitAltarAnimalBST {
 
         @Override
         public String toString() {
-            return "" + this.animalName;
+            return "" + this.animalName; //don't know if you need this accessor since your String variable is already public
         }
     }
     private BSTNode root;
@@ -47,7 +47,7 @@ public class CuneyitAltarAnimalBST {
     public String toString(BSTNode node){
         if (node.left == null && node.right == null){
             System.out.println(node.animalName);
-        }
+        } //depending on the order you're trying to print in, having it print in this order might be a little weird. i would test this method out and see if you're getting the format you're looking for
         else{
             if (node.left != null){
                 toString(node.left);
