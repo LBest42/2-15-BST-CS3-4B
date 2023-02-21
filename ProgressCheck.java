@@ -118,7 +118,7 @@ public class ProgressCheck
                 {
                     String t = getMin(temp.right);
                     delete(temp.right.name);
-                    temp.val = t;
+                    temp.name = t;
                 }
             }
         }
