@@ -116,9 +116,9 @@ public class ProgressCheck
                 }
                 else //i dont think this works
                 {
-                    root = temp.right;
-                    temp = null;
-                    return;
+                    String t = getMin(temp.right);
+                    delete(temp.right.name);
+                    temp.val = t;
                 }
             }
         }
@@ -134,6 +134,24 @@ public class ProgressCheck
             delete(temp.right, prev, n);
        }
    }
+   
+   public String getMin()
+    {
+        if (root == null)
+        {
+            return null;
+        }
+        return getMin(root);
+    }
+   
+   public int getMin(Node temp)
+    {
+        if (temp.left == null)
+        {
+            return temp.name;
+        }
+        return getMin(temp.left);
+    }
    
    public void toString(Node temp)
    {
