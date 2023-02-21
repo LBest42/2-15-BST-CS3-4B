@@ -38,7 +38,7 @@ public class CuneyitAltarAnimalBST {
                     node.left = newLeaf;
                 }
                 else if (node.left != null){
-                    insert(node.left, animalName);
+                    insert(node.left, animalName); //you do a good job at accounting for both cases if the word is alphabetically greater or less than the current node
                 }
             }
         }
