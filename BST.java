@@ -61,7 +61,7 @@ public class BST {
 
     public String printInorder(Animal a) {
         //Animal a = root;
-        String s = "";
+        String s = "";       // there is no case where it will deal with it if the root is there but it is null
         if (a != null){
             s += printInorder(a.left);
         }
