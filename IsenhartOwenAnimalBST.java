@@ -1,4 +1,4 @@
-public class IsenhartOwenAnimalBST{ // file name too long
+public class IsenhartOwenAnimalBST{
     private Node root;
     public class Node{
         String name;
@@ -13,7 +13,7 @@ public class IsenhartOwenAnimalBST{ // file name too long
         }
     }
     public IsenhartOwenAnimalBST(){
-        root = new Node("");
+        root = null;
     }
     
     public void insert(String s){
@@ -25,32 +25,33 @@ public class IsenhartOwenAnimalBST{ // file name too long
             node = new Node(s);
             return node;
         }
-        else if (node.name.compareTo(node.left.name) < 0){
+        else if (node.name.compareTo(s) < 0){
             node.left = insert(node.left, s);
         }
-        else if (node.name.compareTo(node.right.name) > 0){
+        else if (node.name.compareTo(s) > 0){
             node.right = insert(node.right, s);
         }
         return node;
     }
     
-    public Node getMin(){
+    public String getMin(){
         return getMin(root);
     }
-    public Node getMin(Node node){
+    public String getMin(Node node){
         if (node.left == null)
-            return node;
-        getMin(node.left);
-        return null; //no shot this works
+            return node.name;
+        else
+            return getMin(node.left);
+
     }
-    public Node getMax(){
+    public String getMax(){
         return getMax(root);
     }
-    public Node getMax(Node node){
+    public String getMax(Node node){
         if (node.right == null)
-            return node;
-        getMax(node.right);
-        return null; //no shot this works
+            return node.name;
+        else
+            return getMax(node.right);
     }
     
     public boolean contains(String s){
@@ -60,9 +61,9 @@ public class IsenhartOwenAnimalBST{ // file name too long
     public boolean contains(Node node, String s){
         if (node == null) 
             return false;
-        if (root.name.equals(s)) 
+        if (node.name.equals(s)) 
             return true;
-        else if (node.name.compareTo(s) > 0){ 
+        else if (node.name.compareTo(s) < 0){ 
             return contains(node.left, s);
         }
         else{ 
@@ -101,13 +102,13 @@ public class IsenhartOwenAnimalBST{ // file name too long
                 }
             }
             else{ //two subs
-                String temp = getMin(node.right).name; //sum like this i forgot
+                String temp = getMin(node.right); 
                 delete(node.right.name);
                 node.name = temp;
             }
         }
         else{
-            if (node.name.compareTo(node.left.name) < 0){
+            if (node.name.compareTo(s) < 0){
                 delete(node.left, node, s);
             }
             else{
@@ -116,7 +117,7 @@ public class IsenhartOwenAnimalBST{ // file name too long
         }
     }
     public void print(){ //i couldn't call it to string because of error
-        print(root);//good attempt!
+        print(root);
     }
     public void print(Node node){
         if (node != null){
