@@ -41,7 +41,7 @@ public class ParasuramuniEeshwarAnimal { //class name too long! should be shorte
         }
     }
 
-
+    // also the delete does not work at all
     public void delete(animalNode node, animalNode previousNode, boolean right , String n){ //you have a bit too many paramteres, you can cut down!!!Q
         animalNode successor = null;
         if(n == node.name){
