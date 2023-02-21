@@ -47,7 +47,7 @@ public class CuneyitAltarAnimalBST {
     public String toString(BSTNode node){
         if (node.left == null && node.right == null){
             System.out.println(node.animalName);
-        } //depending on the order you're trying to print in, having it print in this order might be a little weird. i would test this method out and see if you're getting the format you're looking for
+        } 
         else{
             if (node.left != null){
                 toString(node.left);
@@ -58,10 +58,10 @@ public class CuneyitAltarAnimalBST {
                 System.out.println(node.animalName);
             }
         }
-        return "";
+        return ""; //it looks like you're combining print statements with a String-type class. I would either make this class return void and remove this statement or keep it as string and save the String in one large string, then return that
     }
 
-    public void delete(BSTNode helperNode, String name){
+    public void delete(BSTNode helperNode, String name){ //i like how compact this method is!
         if (helperNode.left == null && helperNode.right == null){}
         else{
             if (helperNode.animalName.compareToIgnoreCase(helperNode.right.animalName) > 0){
@@ -72,7 +72,7 @@ public class CuneyitAltarAnimalBST {
             }
             else if (helperNode.animalName.compareToIgnoreCase(name) == 0 && helperNode.left != null){
                 helperNode.animalName = helperNode.left.animalName;
-            }
+            } //you need something here that says what to do if the left node is null. currently, if you're trying to remove a leaf, it won't remove anything at all.
         }
     }
 }
