@@ -20,7 +20,7 @@ public class CuneyitAltarAnimalBST {
     }
 
     public void insert (BSTNode node, String animalName){
-        if (root == null){}
+        if (root == null){} //add a return statement to exit method and avoid nullPointerExceptions
         else{
             if (animalName.compareToIgnoreCase(node.animalName) > 0){
                 if (node.right == null){
@@ -31,7 +31,7 @@ public class CuneyitAltarAnimalBST {
                     insert(node.right, animalName);
                 }
             }
-            else if (animalName.compareToIgnoreCase(node.animalName) == 0){}
+            else if (animalName.compareToIgnoreCase(node.animalName) == 0){} //add a return statement here as well
             else{
                 if (node.left == null){
                     BSTNode newLeaf = new BSTNode(animalName);
