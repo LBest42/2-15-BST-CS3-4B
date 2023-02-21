@@ -52,7 +52,8 @@ public class SidhuJaidenAnimalBST //your class name gives me a stroke reading it
         if (root == null) { return; }
         deleteRecursion(root, str);
     }
-    public void deleteRecursion(Node n, String str) {
+    public void deleteRecursion(Node n, String str) { // great job i dont know if it works but it looks like it does :)
+        
         if (n.name.equals(str)) {
             if (n.right != null && n.left != null) {
                 Node successor = getMinRecursion(n.right); //the name successor is kinda've convulated, could have been shorter use prev next time
