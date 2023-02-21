@@ -144,7 +144,7 @@ public class ProgressCheck
         return getMin(root);
     }
    
-   public int getMin(Node temp)
+   public String getMin(Node temp)
     {
         if (temp.left == null)
         {
@@ -155,7 +155,7 @@ public class ProgressCheck
    
    public void toString(Node temp)
    {
-       if (root != null)
+       if (temp != null)
        {
            toString(temp.left);
            System.out.print(temp.name + " ");
