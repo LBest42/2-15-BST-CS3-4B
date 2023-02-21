@@ -116,7 +116,7 @@ public class IsenhartOwenAnimalBST{
         }
     }
     public void print(){ //i couldn't call it to string because of error
-        print(root);
+        print(root);//good attempt!
     }
     public void print(Node node){
         if (node != null){
