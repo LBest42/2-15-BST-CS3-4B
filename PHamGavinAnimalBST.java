@@ -103,9 +103,31 @@ public class PHamGavinAnimalBST
     
     public String toString(String build)
     {
-        return "validAnimalNames"; //your attempt at a toString does not produce any valid animal names <--- whoever wrote this is factually wrong
+        //return "validAnimalNames"; //your attempt at a toString does not produce any valid animal names <--- whoever wrote this is factually wrong //OKay
+        return recursed(root, "");
     }
     
+    public String recursed(AnimalNode hold, String build)
+    {
+        if(hold.left == null && hold.right == null)
+        {
+            return hold.name;
+        }
+        {
+            if(hold.left != null) //if left
+            {
+                return recursed(hold.left, build) + hold.name;
+            }
+            else if(hold.right != null) //if right
+            {
+                return recursed(hold.right, build) + hold.name;
+            }
+            else //if both
+            {
+                return recuresd(hold.left, build) + hold.name + recursed(hold.right, build);
+            }
+        }
+    }
     public static void main(String[] args)
     {
         PHamGavinAnimalBST bst = new PHamGavinAnimalBST();
