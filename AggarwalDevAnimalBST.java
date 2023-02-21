@@ -16,6 +16,7 @@ public class AggarwalDevAnimalBST {
     public AggarwalDevAnimalBST() {
 //nothing in your construdcotr, why isnt there anything uiny yourn cobsturcotor youj nedd ote stablish root iun your cibstryctir
     }
+    // Dev you need a root in your constructor - eesh
     public void insert(String name) {
         if(head==null) {
             head = new AnimalNode(name);
@@ -93,5 +94,6 @@ public class AggarwalDevAnimalBST {
             printRecurse(node.right);
 
     }
+    // everyhting loks good but u need to initialize root/ head variable so yah - eesh
 }
 //very nice! by: gavin
