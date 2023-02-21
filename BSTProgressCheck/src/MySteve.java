@@ -1,6 +1,5 @@
 public class MySteve
 {
-    // Trollolololololol - Mr. Best
     private Node root;
     private class Node
     {
@@ -92,7 +91,7 @@ public class MySteve
     {
         if (node.val.equals(n))
         {
-            if (node.right == null && node.left == null)// if its a leaf
+            if (node.right == null && node.left == null)
             {
                 if (prev.right == node)
                 {
@@ -103,7 +102,7 @@ public class MySteve
                     prev.left = null;
                 }
             }
-            else if (node.right == null) //if has one child on left
+            else if (node.right == null)
             {
                 if (prev != null)
                 {
@@ -127,7 +126,7 @@ public class MySteve
                     return;
                 }
             }
-            else if (node.left == null) //if has one child on right
+            else if (node.left == null)
             {
                 if (prev != null)
                 {
@@ -151,36 +150,37 @@ public class MySteve
                     return;
                 }
             }
-            else if (node.left != null && node.right != null)
+            else
             {
-                if (node.left.val.compareTo(node.right.val) == 1)
-                {
-                    prev.right = node.left;
-                    prev.left = node.left;
-                    node = null;
-                    return;
-                }
-                else if (node.right.val.compareTo(node.right.val) == 1)
-                {
-                    prev.right = node.right;
-                    prev.left = node.right;
-                    node = null;
-                    return;
-                }
+                String t = getMin(node.right);
+                delete(node.right.val);
+                node.val = t;
             }
         }
         else
         {
             prev = node;
-            if (node.val.compareTo(n) == 1) //if greater
+            if (node.val.compareTo(n) < 0)
             {
-                delete(node.left, prev, n);
+                delete(node.left, prev, node.left.val);
             }
-            else if (node.val.compareTo(n) == -1) //if lower
+            else if (node.val.compareTo(n) > 0)
             {
-                delete(node.right, prev, n);
+                delete(node.right, prev, node.right.val);
             }
 
+        }
+    }
+
+    public String getMin(Node node)
+    {
+        if (node.left == null)
+        {
+            return node.val;
+        }
+        else
+        {
+            return getMin(node.left);
         }
     }
 
@@ -213,7 +213,7 @@ public class MySteve
         }
     }
 
-    public static void main(String[] args)//this is good testing! by:gavin pham
+    public static void main(String[] args)
     {
         MySteve a = new MySteve();
         a.insert("elephant");
