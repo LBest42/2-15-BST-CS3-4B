@@ -17,9 +17,9 @@ public class SharmaAnshAnimalBST {
     private Node root;
     public SharmaAnshAnimalBST()
     {
-        root = new Node();
+        root = new Node(); // there is no 0 parameter constructor
     }
-    public void insert (String a)
+    public void insert (String a) // forgot to handle for the case of an empty tree
     {
         insertTraverse(root, a);
     }
@@ -74,7 +74,7 @@ public class SharmaAnshAnimalBST {
         else
         {
             Node temp;
-            if (node.right == null && node.left == null) {
+            if (node.right == null && node.left == null) { // does this delete memory address from parent node?
                 node = null;
                 return;
             }
@@ -82,7 +82,7 @@ public class SharmaAnshAnimalBST {
                 temp = node.left;
             else if (node.left == null)
                 temp = node.right;
-            else
+            else 
                 temp = left(node.right);
             node.val = temp.val;
             if (temp.right != null)
