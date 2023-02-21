@@ -65,7 +65,7 @@ public class BST {
         if (a != null){
             s += printInorder(a.left);
         }
-        return s;
+        return s; // not sure if this is important but I belive there will be no spaces between the nodes on the toString return for s
         //No.
     }
 
