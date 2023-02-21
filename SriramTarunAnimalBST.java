@@ -43,11 +43,11 @@ public class SriramTarunAnimalBST
     }
     
     private BSTNode insertR(BSTNode treeNode, String data){
-        if(treeNode == null){
+        if(treeNode == null){ 
             treeNode = new BSTNode(data);
             return treeNode;
-        }else if(data.compareTo(treeNode.data) >= 0){
-            return insertR(treeNode.right, data);
+        }else if(data.compareTo(treeNode.data) >= 0){ //1) we can't use >= here as the method shouldn't insert any strings that are already in the method
+            return insertR(treeNode.right, data); //2) i see your logic here, however you can't pass a null variable into the method or else it will fail. you need to move the "null-check" to before you call the method. otherwise it will return a null-pointer
         }else if(data.compareTo(treeNode.data) < 0){
             return insertR(treeNode.left, data);
         }else{
@@ -56,7 +56,7 @@ public class SriramTarunAnimalBST
     }
     
     private boolean contains(BSTNode treeNode, String data){
-        if(treeNode == null){
+        if(treeNode == null){ //3) same problem as before. you should check before you recurse the method if the left or right child is null, and if it is there, not call the method and return whatever desired result you need
             return false;
         }
         if(treeNode.data.equals(data)){
@@ -110,6 +110,7 @@ public class SriramTarunAnimalBST
     }
     
     //delete is not done, I'm sorry :(((((((((((((
+    //how dare you.
     private BSTNode deleteR(BSTNode treeNode, String data){
         if(treeNode == null){
             return treeNode;
