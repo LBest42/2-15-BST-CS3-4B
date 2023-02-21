@@ -1,4 +1,5 @@
 public class AggarwalDevAnimalBST {
+
     private AnimalNode head;
     public class AnimalNode {
         String name;
@@ -14,9 +15,8 @@ public class AggarwalDevAnimalBST {
         }
     }
     public AggarwalDevAnimalBST() {
-//nothing in your construdcotr, why isnt there anything uiny yourn cobsturcotor youj nedd ote stablish root iun your cibstryctir
+
     }
-    // Dev you need a root in your constructor - eesh
     public void insert(String name) {
         if(head==null) {
             head = new AnimalNode(name);
@@ -47,14 +47,23 @@ public class AggarwalDevAnimalBST {
         if(head==null) {
             return;
         }
+        if(head.name.equals(name))
+            head = null;
         deleteRecursion(head, name);
+    }
+    public AnimalNode left(AnimalNode node) {
+        if(node.left!=null)
+            return left(node.left);
+        return node;
     }
     public void deleteRecursion(AnimalNode node, String name) {
         if(node.left==null && node.right==null)
             return;
         if(node.left!= null && node.left.name.compareTo(name)==0) {
             if(node.left.right != null) {
-                node.left = node.left.right;
+                AnimalNode x = left(node.left.right);
+                node.left.name = x.name;
+                x = null;
             }
             else if(node.left.left!= null) {
                 node.left = node.left.left;
@@ -64,7 +73,9 @@ public class AggarwalDevAnimalBST {
         }
         else if(node.right!= null && node.right.name.compareTo(name)==0) {
             if(node.right.right != null) {
-                node.right = node.right.right;
+                AnimalNode x = left(node.right.right);
+                node.right.name = x.name;
+                x = null;
             }
             else if(node.right.left!= null) {
                 node.right = node.right.left;
@@ -94,7 +105,8 @@ public class AggarwalDevAnimalBST {
             printRecurse(node.right);
 
     }
-    // everyhting loks good but u need to initialize root/ head variable so yah - eesh
 }
-//very nice! by: gavin
-//good code, everything looks good and works! by: altar
+// Reflection - The feedback given was nice but did not identify any shortcomings. While reviewing other's code
+// I realized I forgot to implement the correct approach for the delete method regarding which node
+// to replace to the TO-BE-DELETED node with. I gained some insight during this progress chech for 
+// which I was grateful
