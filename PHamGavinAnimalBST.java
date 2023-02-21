@@ -92,6 +92,10 @@ public class PHamGavinAnimalBST
                         return;
                     }
                 }
+                else //if is it the same
+                {
+                    hold = null; //delete it all
+                }
             }
             //delete method does not seem to account for if the node being deleted has two children
         }
@@ -99,7 +103,7 @@ public class PHamGavinAnimalBST
     
     public String toString(String build)
     {
-        return "hi"; //your attempt at a toString does not produce any valid animal names <--- whoever wrote this is factually wrong
+        return "validAnimalNames"; //your attempt at a toString does not produce any valid animal names <--- whoever wrote this is factually wrong
     }
     
     public static void main(String[] args)
