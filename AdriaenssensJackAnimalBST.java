@@ -64,6 +64,7 @@ public class AdriaenssensJackAnimalBST
             
                 root = null;
             //hehe
+            //nice try!
         }
         if (root.val.compareTo(s) > 0){
                 if (root.left.val.equals(s))
