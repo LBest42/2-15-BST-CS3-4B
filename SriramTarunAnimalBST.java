@@ -46,7 +46,7 @@ public class SriramTarunAnimalBST
         if(treeNode == null){ 
             treeNode = new BSTNode(data);
             return treeNode;
-        }else if(data.compareTo(treeNode.data) >= 0){ //1) we can't use >= here as the method shouldn't insert any strings that are already in the method
+        }else if(data.compareTo(treeNode.data) > 0){
             return insertR(treeNode.right, data); //2) i see your logic here, however you can't pass a null variable into the method or else it will fail. you need to move the "null-check" to before you call the method. otherwise it will return a null-pointer
         }else if(data.compareTo(treeNode.data) < 0){
             return insertR(treeNode.left, data);
@@ -109,8 +109,7 @@ public class SriramTarunAnimalBST
         overallRoot = deleteR(overallRoot, data);
     }
     
-    //delete is not done, I'm sorry :(((((((((((((
-    //how dare you.
+    
     private BSTNode deleteR(BSTNode treeNode, String data){
         if(treeNode == null){
             return treeNode;
