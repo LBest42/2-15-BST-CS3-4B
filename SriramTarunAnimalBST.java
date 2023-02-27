@@ -7,7 +7,6 @@
  */
 public class SriramTarunAnimalBST
 {
-    // instance variables - replace the example below with your own
     private BSTNode overallRoot;
     private String output;
     private static int COUNT = 4;
@@ -46,27 +45,27 @@ public class SriramTarunAnimalBST
         if(treeNode == null){ 
             treeNode = new BSTNode(data);
             return treeNode;
-        }else if(data.compareTo(treeNode.data) > 0){
-            return insertR(treeNode.right, data); //2) i see your logic here, however you can't pass a null variable into the method or else it will fail. you need to move the "null-check" to before you call the method. otherwise it will return a null-pointer
+        }if(data.compareTo(treeNode.data) > 0){
+            treeNode.right = insertR(treeNode.right, data); 
         }else if(data.compareTo(treeNode.data) < 0){
-            return insertR(treeNode.left, data);
-        }else{
-            return treeNode;
+            treeNode.left = insertR(treeNode.left, data);
         }
+        return treeNode;
     }
     
     private boolean contains(BSTNode treeNode, String data){
-        if(treeNode == null){ //3) same problem as before. you should check before you recurse the method if the left or right child is null, and if it is there, not call the method and return whatever desired result you need
+        if(treeNode == null){ 
             return false;
         }
-        if(treeNode.data.equals(data)){
+        int comparisonVal = treeNode.data.compareTo(data);
+        if(comparisonVal == 0){
             return true;
-        }else if(data.compareTo(treeNode.data) >= 0){
+        }else if(comparisonVal > 0 && treeNode.right != null)
             return contains(treeNode.right, data);
-        }else if(data.compareTo(treeNode.data) < 0){
+        }else if(comparisonVal < 0 && treeNode.left != null){
             return contains(treeNode.left, data);
-        }else
-            return false;
+        }
+        return false;
     }
     
     public String toString(){
@@ -111,18 +110,38 @@ public class SriramTarunAnimalBST
     
     
     private BSTNode deleteR(BSTNode treeNode, String data){
-        if(treeNode == null){
-            return treeNode;
-        }else if(treeNode.data.equals(data)){
-            if(treeNode.left == null && treeNode.right == null){
-                treeNode = null;
-                return treeNode;
-            }else if(treeNode.left != null){
-                BSTNode newNode = new BSTNode(treeNode.left.data);
-                treeNode.left = null;
-                
+        if(treeNode == null)
+               return null;
+        if(data.compareTo(treeNode.data) < 0){
+            treeNode.left = deleteR(treeNode.left, data);
+        }else if(data.compareTo(treeNode.data) > 0){
+            treeNode.right = deleteR(treeNode.right, data);
+        }else{
+            if(treeNode.left == null)
+                return treeNode.right;
+            else if(treeNode.right == null){
+                return treeNode.left;
             }
+            
+            treeNode.data = getLowestString(treeNode.data);
+            
+            treeNode.right = deleteR(treeNode.right, treeNode.data);
         }
+        return treeNode;
+    }
+
+    private String getLowestString(BSTNode treeNode){
+        if(treeNode == null){
+            return null;
+        }
+        
+        String lowStr = treeNode.data;
+        while(treeNode.left != null){
+            lowStr = treeNode.left.data;
+            treeNode = treeNode.left;
+        }
+        return lowStr;
+        
     }
     
     
